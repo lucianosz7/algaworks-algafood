@@ -1,7 +1,5 @@
 package com.redpok.algafood.domain.model;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,9 +13,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@EqualsAndHashCode
 @Entity
-public class Restaurante {
+public class Cidade {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +24,6 @@ public class Restaurante {
 	@Column
 	private String nome;
 	
-	@Column(name = "taxa_frete")
-	private BigDecimal taxaFrete;
-	
 	@ManyToOne
-	private Cozinha cozinha;
-	
+	private Estado estado;
 }
