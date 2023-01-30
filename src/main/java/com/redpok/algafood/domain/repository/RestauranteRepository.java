@@ -10,7 +10,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.redpok.algafood.domain.model.Restaurante;
 
-public interface RestauranteRepository extends JpaRepository<Restaurante, Long>, RestauranteRepositoryQueries, JpaSpecificationExecutor<Restaurante>{
+public interface RestauranteRepository 
+	extends CustomJpaRepository<Restaurante, Long>, RestauranteRepositoryQueries, 
+	JpaSpecificationExecutor<Restaurante>{
 	
 	List<Restaurante> queryByTaxaFreteBetween(BigDecimal taxaInicial, BigDecimal taxaFinal);
 	
