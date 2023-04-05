@@ -31,18 +31,19 @@ import lombok.EqualsAndHashCode;
 @Entity
 public class Restaurante {
 
+	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
+	@Column(nullable = false)
 	private String nome;
 	
-	@Column(name = "taxa_frete")
+	@Column(name = "taxa_frete", nullable = false)
 	private BigDecimal taxaFrete;
 	
 	//@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne //(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cozinha_id", nullable = false)
 	private Cozinha cozinha;
 	
@@ -70,7 +71,4 @@ public class Restaurante {
 	@JsonIgnore
 	@OneToMany(mappedBy = "restaurante")
 	private List<Produto> produtos = new ArrayList<>();
-	
-	
-	
 }
